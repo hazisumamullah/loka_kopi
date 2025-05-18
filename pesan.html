@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking Anda</title>
+    <link rel="stylesheet" href="pesan.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="img/logo.png" alt="Logo Loka Kopi" />
+      </div>
+      <h1 class="navbar-title">Pesanan Anda</h1>
+    </nav>
+
+    <div class="keranjang-container" id="keranjang"></div>
+
+    <a href="index.html" class="back-btn">Kembali ke halaman</a>
+
+    <script>
+      const nomorWA = "6287849098363"; // Ganti dengan nomor WA Anda
+
+      function renderKeranjang() {
+        const keranjangEl = document.getElementById("keranjang");
+        const data = JSON.parse(localStorage.getItem("booking")) || [];
+
+        if (data.length === 0) {
+          keranjangEl.innerHTML =
+            '<p class="kosong">Keranjang pesnan masih kosong.</p>';
+          return;
+        }
+
+        let total = 0;
+        keranjangEl.innerHTML = "";
+
+        data.forEach((item, index) => {
+          total += item.harga;
+
+          const itemEl = document.createElement("div");
+          itemEl.className = "item";
+
+          itemEl.innerHTML = `
+            <img src="${item.gambar}" alt="${item.nama}" />
+            <div class="item-info">
+              <h3>${item.nama}</h3>
+              <p>Harga: Rp ${item.harga.toLocaleString("id-ID")}</p>
+            </div>
+            <button class="hapus-btn" onclick="hapusItem(${index})">Hapus</button>
+          `;
+
+          keranjangEl.appendChild(itemEl);
+        });
+
+        keranjangEl.innerHTML += `
+          <div class="total">Total: Rp ${total.toLocaleString("id-ID")}</div>
+          <div class="clear-all"><button onclick="hapusSemua()">Hapus Semua</button></div>
+          <a href="#" class="checkout-btn" onclick="checkoutWA()">Checkout via WhatsApp</a>
+        `;
+      }
+
+      function hapusItem(index) {
+        const keranjang = JSON.parse(localStorage.getItem("booking")) || [];
+        keranjang.splice(index, 1);
+        localStorage.setItem("booking", JSON.stringify(keranjang));
+        renderKeranjang();
+      }
+
+      function hapusSemua() {
+        if (confirm("Apakah Anda yakin ingin menghapus semua pesanan?")) {
+          localStorage.removeItem("booking");
+          renderKeranjang();
+        }
+      }
+
+      function checkoutWA() {
+        const data = JSON.parse(localStorage.getItem("booking")) || [];
+        if (data.length === 0) {
+          alert("Keranjang pesanan masih kosong.");
+          return;
+        }
+
+        let pesan = "Halo, saya ingin melakukan pemesanan:\n\n";
+        let total = 0;
+
+        data.forEach((item, i) => {
+          pesan += `${i + 1}. ${item.nama} - Rp ${item.harga.toLocaleString(
+            "id-ID"
+          )}\n`;
+          total += item.harga;
+        });
+
+        pesan += `\nTotal: Rp ${total.toLocaleString(
+          "id-ID"
+        )}\n\nTerima kasih.`;
+
+        const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(
+          pesan
+        )}`;
+        window.open(url, "_blank");
+
+        localStorage.removeItem("booking");
+        location.reload();
+      }
+
+      renderKeranjang();
+    </script>
+  </body>
+</html>

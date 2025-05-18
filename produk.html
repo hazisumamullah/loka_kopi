@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tempat Wisata</title>
+    <link rel="stylesheet" href="produk.css" />
+    <script>
+      function tambahBooking(nama, harga, gambar, tanggalSampai) {
+        const item = { nama, harga, gambar, tanggalSampai };
+        let keranjang = JSON.parse(localStorage.getItem("booking")) || [];
+        keranjang.push(item);
+        localStorage.setItem("booking", JSON.stringify(keranjang));
+        alert(`${nama} telah ditambahkan ke Keranjang.`);
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="img/logo.png" alt="Logo Loka Kopi" />
+      </div>
+      <h1 class="navbar-title">Menu Kami</h1>
+    </nav>
+
+    <section class="list-wisata main-content">
+      <div class="wisata-item">
+        <img src="img/menu arabika.jpg" alt="Arabika 100g" />
+        <h2>Arabika 100g</h2>
+        <p>
+          Arabika sajang sembalun dikemas dalam bentuk Roast bran dan bubuk.
+        </p>
+        <p><strong>Harga : Rp 35.000</strong></p>
+        <button
+          class="btn"
+          onclick="tambahBooking('Arabika 100g', 35000, 'img/menu arabika.jpg', '2025-05-20')"
+        >
+          Pesan
+        </button>
+      </div>
+
+      <div class="wisata-item">
+        <img src="img/robusta1.jpg" alt="Kopi robusta" />
+        <h2>Robusta 100g</h2>
+        <p>
+          Robusta sajang sembalun dikemas dalam bentuk Roast bran dan bubuk.
+        </p>
+        <p><strong>Harga : Rp 25.000</strong></p>
+        <button
+          class="btn"
+          onclick="tambahBooking('Robusta 100g', 25000, 'img/robusta1.jpg', '2025-05-20')"
+        >
+          Pesan
+        </button>
+      </div>
+    </section>
+
+    <div class="checkout-link">
+      <a href="pesan.html" class="btn">Lihat Pesanan</a>
+    </div>
+  </body>
+</html>

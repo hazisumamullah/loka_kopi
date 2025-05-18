@@ -1,0 +1,261 @@
+/* Reset & Base */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f0f8ff;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+  background-color: rgba(17, 17, 17, 0.5); /* lebih transparan */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+}
+.logo img {
+  height: 60px;
+  width: auto;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Menu */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin-right: 40px;
+}
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Icon hamburger menu */
+.menu-icon {
+  display: none;
+  margin-right: 50px;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 60px;
+    right: -250px; /* sembunyikan ke kanan */
+    width: 200px;
+    height: calc(100% - 60px);
+    flex-direction: column;
+    gap: 20px;
+    padding: 8px 12px;
+    margin: 0;
+    transition: right 0.3s ease;
+    background-color: transparent; /* default saat tertutup */
+    z-index: 998;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  .nav-links.show {
+    right: 0;
+  }
+
+  .nav-links li a {
+    font-size: 18px;
+  }
+
+  /* Tampilkan icon hamburger di layar kecil */
+  .menu-icon {
+    display: block;
+  }
+}
+
+/* Header */
+header {
+  position: relative;
+  height: 100vh;
+  color: white;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  text-align: start;
+  padding: 0 20px;
+  overflow: hidden;
+}
+.header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 0;
+}
+.header-bg.active {
+  opacity: 1;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.3)
+  );
+  z-index: 1;
+}
+.header-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+.header-content h1 {
+  font-size: 5vw;
+  margin-bottom: 20px;
+}
+.header-content p {
+  font-size: 2vw;
+  margin: 10px 0 15px;
+}
+.btn {
+  padding: 12px 24px;
+  background: #855e42;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.5vw;
+  transition: background 0.3s;
+}
+.btn:hover {
+  background: #1a1410;
+  box-shadow: #855e42;
+}
+
+/* About Section */
+#about {
+  background-color: white;
+  padding: 80px 20px;
+  color: #333;
+}
+.about-container {
+  display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.about-text {
+  flex: 1 1 400px;
+}
+.about-text h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+.about-text p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+.about-image {
+  flex: 1 1 400px;
+  text-align: center;
+}
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+}
+.footer-logo {
+  margin-bottom: 20px;
+}
+.footer-logo img {
+  height: 120px;
+  width: auto;
+  user-select: none;
+}
+/* Sosial Media */
+footer .social-icons {
+  margin: 15px 0;
+}
+footer .social-icons a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 22px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+footer .social-icons a:nth-child(2):hover {
+  color: #1877f2;
+}
+footer .social-icons a:nth-child(3):hover {
+  color: #16a720;
+}
+footer .social-icons a:hover {
+  color: #e4405f;
+}
+
+/* Smaller mobile */
+@media (max-width: 480px) {
+  .header-content {
+    padding: 0 10px;
+  }
+  .header-content h1 {
+    font-size: 8vw;
+  }
+  .header-content p {
+    font-size: 5vw;
+  }
+  .btn {
+    font-size: 5vw;
+  }
+}
+.custom-alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #333;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 9999;
+  font-family: sans-serif;
+}
+
+.custom-alert.show {
+  opacity: 1;
+  pointer-events: auto;
+}

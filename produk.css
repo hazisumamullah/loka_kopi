@@ -1,0 +1,150 @@
+body {
+  font-family: Arial, sans-serif;
+  background: url("img/kopi2.jpg") no-repeat center center fixed;
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+  line-height: 1.6;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.logo {
+  position: absolute;
+  left: 30px;
+}
+
+.logo img {
+  height: 80px;
+  width: 180px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.navbar-title {
+  color: white;
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Konten utama */
+.main-content {
+  margin-top: 110px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Kartu wisata */
+.wisata-item {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  width: 300px;
+  padding: 15px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s ease;
+}
+
+.wisata-item:hover {
+  transform: scale(1.05);
+}
+
+.wisata-item img {
+  width: 100%;
+  max-height: 280px; /* diperbesar */
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.wisata-item h2 {
+  font-size: 1rem; /* diperkecil */
+  margin: 10px 0 5px 0;
+}
+
+.wisata-item p {
+  font-size: 0.9rem; /* diperkecil */
+  margin: 5px 0;
+}
+
+/* Tombol */
+.btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #855e42;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn:hover,
+.btn:focus {
+  background: #5a3f2b;
+  outline: none;
+}
+
+.checkout-link {
+  margin: 20px 0 40px 0;
+  text-align: center;
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .navbar {
+    flex-direction: column;
+    padding: 5px 20px 15px 20px; /* padding atas kecil, bawah agak lebih */
+    align-items: center;
+    height: auto;
+    top: 0;
+  }
+  .logo {
+    position: static;
+    margin-bottom: 8px; /* beri jarak lebih pas antara logo dan menu */
+  }
+  .navbar-title {
+    font-size: 1.6rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 180px; /* dikurangi supaya tidak terlalu jauh dari navbar */
+  }
+  .wisata-item {
+    width: 90%;
+  }
+}

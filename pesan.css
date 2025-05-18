@@ -1,0 +1,208 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url("img/kopi2.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.logo {
+  position: absolute;
+  left: 30px;
+}
+
+.logo img {
+  height: 80px;
+  width: 180px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.navbar-title {
+  color: white;
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Kontainer keranjang */
+.keranjang-container {
+  max-width: 900px;
+  margin: 140px auto 30px;
+  padding: 0 20px;
+}
+
+/* Item keranjang */
+.item {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.item img {
+  width: 130px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 15px;
+}
+
+.item-info {
+  flex: 1;
+}
+
+.item-info h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.item-info p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Tombol hapus */
+.hapus-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.hapus-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Total harga */
+.total {
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 20px;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+
+/* Clear all */
+.clear-all {
+  margin-top: 10px;
+}
+
+.clear-all button {
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.clear-all button:hover {
+  background-color: #7f8c8d;
+}
+
+/* Tombol checkout */
+.checkout-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #25d366;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.checkout-btn:hover {
+  background-color: #1ebe5d;
+}
+
+/* Tombol back */
+.back-btn {
+  display: inline-block;
+  margin: 20px;
+  padding: 10px 20px;
+  background-color: #59400a;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.back-btn:hover {
+  background-color: #06090b;
+}
+
+/* Pesan kosong */
+.kosong {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 40px;
+  color: #fff;
+  text-shadow: 1px 1px 2px black;
+}
+
+/* Responsive untuk mobile */
+@media (max-width: 640px) {
+  .navbar {
+    flex-direction: column;
+    padding: 5px 20px 15px 20px; /* padding atas kecil, bawah agak lebih */
+    align-items: center;
+    height: auto;
+    top: 0;
+  }
+  .logo {
+    position: static;
+    margin-bottom: 8px; /* jarak antara logo dan judul */
+  }
+  .navbar-title {
+    font-size: 1.6rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .keranjang-container {
+    padding: 10px;
+    margin-top: 140px; /* sesuaikan supaya tidak tertutup navbar */
+  }
+
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .item img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .item-info h3 {
+    font-size: 15px;
+  }
+
+  .item-info p {
+    font-size: 13px;
+  }
+}
